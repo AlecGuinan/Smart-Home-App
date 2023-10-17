@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_Home_App.Kitchen"
+             Title="Kitchen"
+             xmlns:local="clr-namespace:Smart_Home_App">
+    
+    <ContentPage.BindingContext>
+        <local:KitchenViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <VerticalStackLayout>
+        <Slider Value="{Binding Brightness}"/>
+        <Label Text="{Binding Brightness}"
+               HorizontalOptions="Center"
+               FontSize="Body"
+               />
+    </VerticalStackLayout>
+</ContentPage>

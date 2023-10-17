@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Smart_Home_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Smart_Home_App"
+    >
+    <FlyoutItem
+        Title="Kitchen"
+        >
+        <ShellContent ContentTemplate="{DataTemplate local:Kitchen}"/>
+
+    </FlyoutItem>
+    <FlyoutItem Title="Outside">
+        <ShellContent ContentTemplate="{DataTemplate local:OutSide}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Garage">
+        <ShellContent ContentTemplate="{DataTemplate local:Garage}"/>
+    </FlyoutItem>
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
