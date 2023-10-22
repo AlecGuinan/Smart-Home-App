@@ -3,18 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_Home_App.Kitchen"
              Title="Kitchen"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:Smart_Home_App">
     
     <ContentPage.BindingContext>
         <local:KitchenViewModel/>
     </ContentPage.BindingContext>
-    
-    
-    <VerticalStackLayout>
-        <Slider Value="{Binding Brightness}"/>
-        <Label Text="{Binding Brightness}"
-               HorizontalOptions="Center"
-               FontSize="Body"
-               />
-    </VerticalStackLayout>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <VerticalStackLayout
+        Margin="20"
+        Spacing="10"
+            Grid.ColumnSpan="2">
+            <Label Text="Upper Light Brightness:"/>
+            <Slider Value="{Binding Brightness}"
+                VerticalOptions="Center"
+                  />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Margin="20"
+            Spacing="10"
+            Grid.Column="0"
+            Grid.Row="1">
+            <Label Text="Lower Left Brightness:"
+                   HorizontalOptions="Center"/>
+            <Slider
+                Value="{Binding LowerLeftBright}"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            Margin="20"
+            Spacing="10"
+            Grid.Column="1"
+            Grid.Row="1">
+            <Label Text="Lower Right Brightness:"
+                   HorizontalOptions="Center"/>
+            <Slider
+                Value="{Binding LowerRightBright}"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            Margin="20"
+            Spacing="10"
+            Grid.Row="3">
+            <Label Text="Sync Brightness Levels?"/>
+            <Switch
+                IsToggled="{Binding IsSync}"
+            />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
