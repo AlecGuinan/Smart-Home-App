@@ -25,10 +25,18 @@
         Margin="20"
         Spacing="10"
             Grid.ColumnSpan="2">
-            <Label Text="Upper Light Brightness:"/>
+            <Label Text="{Binding MainText}"
+                   VerticalOptions="Center"/>
             <Slider Value="{Binding Brightness}"
                 VerticalOptions="Center"
-                  />
+                  >
+                <Slider.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ValueChanged"
+                        Command="{Binding UpdateBrightnessCommand}"/>
+                </Slider.Behaviors>
+            </Slider>
+
         </VerticalStackLayout>
 
         <VerticalStackLayout
@@ -39,7 +47,14 @@
             <Label Text="Lower Left Brightness:"
                    HorizontalOptions="Center"/>
             <Slider
-                Value="{Binding LowerLeftBright}"/>
+                Value="{Binding LowerLeftBright}">
+                
+                <Slider.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ValueChanged"
+                        Command="{Binding UpdateLeftBrightnessCommand}"/>
+                </Slider.Behaviors>
+            </Slider>
         </VerticalStackLayout>
         <VerticalStackLayout
             Margin="20"
@@ -49,7 +64,14 @@
             <Label Text="Lower Right Brightness:"
                    HorizontalOptions="Center"/>
             <Slider
-                Value="{Binding LowerRightBright}"/>
+                Value="{Binding LowerRightBright}">
+                
+                <Slider.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="ValueChanged"
+                        Command="{Binding UpdateRightBrightnessCommand}"/>
+                </Slider.Behaviors>
+            </Slider>
         </VerticalStackLayout>
         <VerticalStackLayout
             Margin="20"
@@ -58,7 +80,14 @@
             <Label Text="Sync Brightness Levels?"/>
             <Switch
                 IsToggled="{Binding IsSync}"
-            />
+                
+            >   
+                <Switch.Behaviors>
+                    <toolkit:EventToCommandBehavior 
+                        EventName="Toggled"
+                        Command="{Binding SyncBindingCommand}"/>
+                </Switch.Behaviors>
+            </Switch>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
