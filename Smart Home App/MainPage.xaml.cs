@@ -7,6 +7,7 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+		CommunicationModel communicationModel = new CommunicationModel();	
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)
