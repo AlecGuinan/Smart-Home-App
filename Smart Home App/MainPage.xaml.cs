@@ -3,15 +3,16 @@
 public partial class MainPage : ContentPage
 {
 	int count = 0;
-
+	CommunicationModel communicationModel;
 	public MainPage()
 	{
 		InitializeComponent();
-		CommunicationModel communicationModel = new CommunicationModel();	
+		communicationModel = new CommunicationModel();	
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
+		CommunicationModel.sendTCP("Test");
 		count++;
 
 		if (count == 1)
