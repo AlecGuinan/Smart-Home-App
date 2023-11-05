@@ -12,8 +12,8 @@ public partial class MainPage : ContentPage
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
-		CommunicationModel.sendTCP("Test");
 		count++;
+		CommunicationModel.sendTCP(count.ToString());
 
 		if (count == 1)
 			CounterBtn.Text = $"Clicked {count} time";
